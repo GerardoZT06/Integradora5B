@@ -1,3 +1,5 @@
+//checar
+
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Corazon from '../../modules/corazon/adapters/screens/Corazon';
@@ -13,7 +15,7 @@ export default function CorazonStack() {
         name='Corazon'
         component={Corazon}
         options={{
-          title: 'Me gusta',
+          title: 'Me Encanta',
           headerTitleAlign: 'center',
         }}
       />

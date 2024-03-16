@@ -1,3 +1,6 @@
+ //HECHOOOOO
+
+
 import { View, Text } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -10,13 +13,13 @@ import InscritoStack from "../stack/InscritoStack";
 import MeGustaStack from "../stack/MeGustaStack";
 import PerfilStack from "../stack/PerfilStack";
 
+
 const Tab = createBottomTabNavigator();
 
 export default function Navigation() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName="InscritoStack"
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             const { iconName, iconType } = getIconName(route.name, focused);
@@ -29,6 +32,16 @@ export default function Navigation() {
           headerShown: false,
         })}
       >
+         <Tab.Screen
+          name="InicioStack"
+          component={InicioStack}
+          options={{ title: "Inicio" }}
+        />
+         <Tab.Screen
+          name="BuscarStack"
+          component={BuscarStack}
+          options={{ title: "Buscar" }}
+        />
         <Tab.Screen
           name="InscritoStack"
           component={InscritoStack}
@@ -39,16 +52,8 @@ export default function Navigation() {
           component={MeGustaStack}
           options={{ title: "Me gusta" }}
         />
-        <Tab.Screen
-          name="BuscarStack"
-          component={BuscarStack}
-          options={{ title: "Buscar" }}
-        />
-        <Tab.Screen
-          name="InicioStack"
-          component={InicioStack}
-          options={{ title: "Inicio" }}
-        />
+       
+       
         <Tab.Screen
           name="CorazonStack"
           component={CorazonStack}
@@ -60,6 +65,12 @@ export default function Navigation() {
           component={PerfilStack}
           options={{ title: "Perfil" }}
         />
+
+
+
+
+
+        
       </Tab.Navigator>
     </NavigationContainer>
   );
@@ -87,6 +98,11 @@ const getIconName = (routeName, focused) => {
     case "PerfilStack":
       iconName = focused ? "account-outline" : "account-outline";
       break;
+
+
+
+
+      
   }
   return { iconName, iconType };
 };
