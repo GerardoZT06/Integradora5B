@@ -17,10 +17,6 @@ export default function Corazon() {
   const image9 = { uri: 'https://asociacionaepi.es/wp-content/uploads/2022/10/javascript-banner.jpeg' };
   const image10 = { uri: 'https://dkrn4sk0rn31v.cloudfront.net/uploads/2020/11/o-que-e-o-spring.png' };
 
-
-
-
-
   const navigation = useNavigation();
 
   const navigateToDetalles = () => {
@@ -167,7 +163,6 @@ export default function Corazon() {
           </View>
         </View>
       </Card>
-
       <Card containerStyle={styles.cardContainer}>
         <View style={styles.cardContent}>
           <Image
@@ -194,30 +189,7 @@ export default function Corazon() {
           </View>
         </View>
       </Card>
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <Card containerStyle={styles.cardContainer}>
+ <Card containerStyle={styles.cardContainer}>
         <View style={styles.cardContent}>
           <Image
             source={image7}
@@ -243,10 +215,7 @@ export default function Corazon() {
           </View>
         </View>
       </Card>
-
-
-
-      <Card containerStyle={styles.cardContainer}>
+ <Card containerStyle={styles.cardContainer}>
         <View style={styles.cardContent}>
           <Image
             source={image8}
@@ -272,11 +241,6 @@ export default function Corazon() {
           </View>
         </View>
       </Card>
-
-
-
-
-
       <Card containerStyle={styles.cardContainer}>
         <View style={styles.cardContent}>
           <Image
@@ -303,9 +267,6 @@ export default function Corazon() {
           </View>
         </View>
       </Card>
-
-
-
       <Card containerStyle={styles.cardContainer}>
         <View style={styles.cardContent}>
           <Image
@@ -330,35 +291,13 @@ export default function Corazon() {
               <Icon name="heart" size={20} color="black" style={styles.icon} />
               <Icon name="thumbs-up" size={20} color="blue" style={styles.icon} />
             </View>
-            </View>
-
-
-
-
-
-            
+            </View>         
           </View>
         </View>
       </Card>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
     </ScrollView>
   );
 }
-
 const styles = StyleSheet.create({
   scrollView: {
     flexGrow: 1,

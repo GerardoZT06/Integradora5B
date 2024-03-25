@@ -1,15 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Dimensions, ScrollView } from "react-native";
 import Swiper from "react-native-swiper";
-import { Card } from 'react-native-elements';
-
 const { width } = Dimensions.get('window');
-
 export default function Inicio() {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text>Inicio</Text>
+        <Text style={styles.title}>Inicio</Text>
         <View style={styles.card}>
           <Swiper
             style={styles.wrapper}
@@ -63,63 +60,20 @@ export default function Inicio() {
             </View>
           </Swiper>
         </View>
-
-        {/* Aquí van las cuatro tarjetas adicionales */}
-        <ScrollView style={styles.cardContainer}>
-          <Card containerStyle={styles.card}>
-            <Image
-              source={{ uri: 'https://media.glamour.mx/photos/6190c91ff5ed039ceea8e4f7/master/w_1600,c_limit/155085.jpg´' }}
-              style={styles.image}
-            />
-            <View style={styles.cardContent}>
-              <Text style={styles.title}>Diseño y Confección</Text>
-              <Text style={styles.description}>Explora el emocionante mundo del diseño y la confección, donde la creatividad se une con la técnica para dar vida a prendas únicas y expresivas que reflejan tu estilo y personalidad</Text>
-            </View>
-          </Card>
-
-          <Card containerStyle={styles.card}>
-            <Image
-              source={{ uri: 'https://addigital.mx/wp-content/uploads/2023/05/C-Photoshop.jpg' }}
-              style={styles.image}
-            />
-            <View style={styles.cardContent}>
-              <Text style={styles.title}>PhotoShop</Text>
-              <Text style={styles.description}>Descubre el poder de la edición de imágenes y la creatividad sin límites con Adobe Photoshop, la herramienta imprescindible para diseñadores, fotógrafos y artistas digitales.</Text>
-            </View>
-          </Card>
-
-          <Card containerStyle={styles.card}>
-            <Image
-              source={{ uri: 'https://www.anahuac.mx/blog/sites/default/files/inline-images/17.png' }}
-              style={styles.image}
-            />
-            <View style={styles.cardContent}>
-              <Text style={styles.title}>Terapia Física</Text>
-              <Text style={styles.description}>Explora los secretos detrás de los sabores exquisitos y las técnicas culinarias. Desde las bases fundamentales hasta las recetas más innovadoras.</Text>
-            </View>
-          </Card>
-
-          <Card containerStyle={styles.card}>
-            <Image
-              source={{ uri: 'URL_DE_LA_IMAGEN' }} // Aquí coloca la URL de la imagen
-              style={styles.image}
-            />
-            <View style={styles.cardContent}>
-              <Text style={styles.title}>Título de la Cuarta Tarjeta</Text>
-              <Text style={styles.description}>Descripción de la cuarta tarjeta</Text>
-            </View>
-          </Card>
-        </ScrollView>
       </View>
     </ScrollView>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
     marginTop: 60
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
   card: {
     width: width * 0.9,
@@ -171,22 +125,5 @@ const styles = StyleSheet.create({
     marginRight: 3,
     marginTop: 3,
     marginBottom: 3,
-  },
-  cardContainer: {
-    flex: 1,
-    paddingHorizontal: 20,
-    paddingTop: 20,
-  },
-  cardContent: {
-    padding: 10,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  description: {
-    fontSize: 14,
-    color: '#666',
   },
 });

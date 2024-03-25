@@ -9,7 +9,6 @@ import ParticipantesStack from './../stack/ParticipantesStack'
 import EventosStack from './../stack/EventosStack'
 import PerfilStack from './../stack/PerfilStack'
 
-
 const Tab = createBottomTabNavigator();
 export default function Navigation() {
   return (

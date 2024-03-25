@@ -1,7 +1,4 @@
-// hecho
-
-
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 const data = [
@@ -9,11 +6,9 @@ const data = [
   { id: '2', name: 'Usuario 2', photo: require('./../../../../../../assets/img/profile2.png'), active: true },
   { id: '3', name: 'Usuario 3', photo: require('./../../../../../../assets/img/profile1.png'), active: true },
   { id: '4', name: 'Usuario 4', photo: require('./../../../../../../assets/img/profile2.png'), active: true },
-
-  // Agrega más participantes según sea necesario
 ];
 
-const ParticipanteCard = ({ id, name, photo, active, onPress }) => {
+const ParticipanteCard = ({ id, name, photo, active }) => {
   return (
     <View style={[styles.card, { backgroundColor: 'white' }]}>
       <Image source={photo} style={styles.participantePhoto} />
@@ -24,7 +19,6 @@ const ParticipanteCard = ({ id, name, photo, active, onPress }) => {
             styles.statusButton,
             { backgroundColor: active ? 'blue' : 'red' },
           ]}
-          onPress={() => onPress(id)}
         >
           <Text style={{ color: 'white', textAlign: 'center' }}>
             {active ? 'Activo' : 'Inactivo'}
@@ -36,28 +30,12 @@ const ParticipanteCard = ({ id, name, photo, active, onPress }) => {
 };
 
 const Participantes = () => {
-  const [participantes, setParticipantes] = useState(data);
-
-  const toggleParticipantStatus = (participantId) => {
-    setParticipantes((prevParticipants) => {
-      return prevParticipants.map((participant) => {
-        if (participant.id === participantId) {
-          return { ...participant, active: !participant.active };
-        }
-        return participant;
-      });
-    });
-  };
-
   return (
     <FlatList
-      data={participantes}
+      data={data}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
-        <ParticipanteCard
-          {...item}
-          onPress={toggleParticipantStatus}
-        />
+        <ParticipanteCard {...item} />
       )}
     />
   );
