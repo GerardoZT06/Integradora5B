@@ -1,41 +1,39 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, FlatList, Text, Image, TouchableOpacity, Modal, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, FlatList, Text, Image, TouchableOpacity } from 'react-native';
 
 export default function News() {
   const [data, setData] = useState([
-    { id: '1', name: 'Angela Aguilar', value: '', avatarUrl: 'https://www.shutterstock.com/image-photo/smile-selfie-face-young-black-600nw-2346359905.jpg' },
-    { id: '2', name: 'Jenni Juarez', value: '', avatarUrl: 'https://i.blogs.es/34e4f8/selfies---07/450_1000.jpg' },
-    { id: '3', name: 'Hugo Salazar', value: '', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY-WgpexrLf8sq7Ssr7s7fl3bx5eLK49oG4w&usqp=CAU' },
-    { id: '4', name: 'Angela Aguilar', value: '', avatarUrl: 'https://www.shutterstock.com/image-photo/smile-selfie-face-young-black-600nw-2346359905.jpg' },
-    { id: '5', name: 'Jenni Juarez', value: '', avatarUrl: 'https://i.blogs.es/34e4f8/selfies---07/450_1000.jpg' },
-    { id: '6', name: 'Hugo Salazar', value: '', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY-WgpexrLf8sq7Ssr7s7fl3bx5eLK49oG4w&usqp=CAU' },
-    { id: '7', name: 'Angela Aguilar', value: '', avatarUrl: 'https://www.shutterstock.com/image-photo/smile-selfie-face-young-black-600nw-2346359905.jpg' },
-    { id: '8', name: 'Jenni Juarez', value: '', avatarUrl: 'https://i.blogs.es/34e4f8/selfies---07/450_1000.jpg' },
-    { id: '9', name: 'Hugo Salazar', value: '', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY-WgpexrLf8sq7Ssr7s7fl3bx5eLK49oG4w&usqp=CAU' },
-    
-    // Agrega más elementos si es necesario
+    { id: '1', name: 'Angela Aguilar', value: '', avatarUrl: 'https://pbs.twimg.com/profile_images/1410053881720152064/2ELnCcqd_400x400.jpg' },
+    { id: '2', name: 'Luis Fernandez', value: '', avatarUrl: 'https://www.billboard.com/wp-content/uploads/2022/03/joshua-bassett-better-nate-than-ever-2022-billboard-1548.jpg' },
+    { id: '3', name: 'Eduard Sanches', value: '', avatarUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Ed_Sheeran-6886_%28cropped%29.jpg/1200px-Ed_Sheeran-6886_%28cropped%29.jpg' },
+    { id: '4', name: 'Angela Aguilar', value: '', avatarUrl: 'https://www.refinery29.com/images/10225414.jpg?format=webp&width=720&height=864&quality=85' },
+    { id: '5', name: 'Jenni Juarez', value: '', avatarUrl: 'https://plus.cusica.com/wp-content/uploads/2016/09/calvin-harris-cusica-plus-1.jpg' },
+    { id: '6', name: 'Sabrina Calderon', value: '', avatarUrl: 'https://akamai.sscdn.co/uploadfile/letras/fotos/4/3/1/0/4310a267d7e9e9b5975278799a6074fd.jpg' },
+    { id: '7', name: 'Angela Aguilar', value: '', avatarUrl: 'https://hips.hearstapps.com/hmg-prod/images/ariana_grande_photo_jon_kopaloff_getty_images_465687098.jpg' },
+    { id: '8', name: 'Jenni Juarez', value: '', avatarUrl: 'https://hips.hearstapps.com/hmg-prod/images/millie-bobby-brown-1645024505.jpg?crop=0.670xw:1.00xh;0.139xw,0&resize=640:*' },
+    { id: '9', name: 'Hugo Salazar', value: '', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr41zwNZcL-Q5DZXjCASO46Fh7uYtlCBXZlg&usqp=CAU' },
+    { id: '10', name: 'Angela Aguilar', value: '', avatarUrl: 'https://1883magazine.com/wp-content/uploads/2020/09/1883_Magazine_Louis_Partridge_5-scaled.jpg' },
+    { id: '11', name: 'Jenni Juarez', value: '', avatarUrl: 'https://images.mubicdn.net/images/cast_member/560603/cache-281592-1565498018/image-w856.jpg?size=800x' },
+    { id: '12', name: 'Hugo Salazar', value: '', avatarUrl: 'https://www.rollingstone.com/wp-content/uploads/2023/08/Noah-Schnapp-Coming-Out.jpg?w=1581&h=1054&crop=1' },
+    { id: '13', name: 'Hugo Salazar', value: '', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE_J8TfQPwZoSac_KzRYhXMa7d9dvWGs5lAw&usqp=CAU' },
+
+  
+  
+  
+  
+  
   ]);
 
-  const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
-  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+  const [showDownloadAlert, setShowDownloadAlert] = useState(false);
 
   const handleDownloadPress = () => {
-    setShowConfirmationDialog(true);
+    setShowDownloadAlert(true);
   };
 
-  const handleConfirm = () => {
-    // Limpiar los valores de los inputs
-    setData(data.map(item => ({ ...item, value: '' })));
-    setShowConfirmationDialog(false);
-    setShowSuccessDialog(true);
-  };
-
-  const handleCancel = () => {
-    setShowConfirmationDialog(false);
-  };
-
-  const handleSuccessOk = () => {
-    setShowSuccessDialog(false);
+  const handleConfirmDownload = () => {
+    setShowDownloadAlert(false);
+    // Realizar acciones de descarga aquí
+    // setData([...]); // Actualizar el estado si es necesario
   };
 
   const renderItem = ({ item }) => (
@@ -48,7 +46,9 @@ export default function News() {
         style={[styles.button, parseInt(item.value) >= 8 ? styles.buttonRed : styles.buttonBlue]}
         onPress={() => handleButtonPress(item.id)}
       >
-        <Text style={styles.buttonText}>{parseInt(item.value) >= 8 ? 'Ausente' : 'Presente'}</Text>
+        <Text style={[styles.buttonText, parseInt(item.value) >= 8 ? styles.buttonTextRed : null]}>
+          {parseInt(item.value) >= 8 ? 'Ausente' : 'Presente'}
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -63,9 +63,6 @@ export default function News() {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.downloadButton} onPress={handleDownloadPress}>
-        <Text style={styles.downloadButtonText}>Descargar</Text>
-      </TouchableOpacity>
       <View style={styles.containerBackground}>
         <FlatList
           data={data}
@@ -74,70 +71,27 @@ export default function News() {
         />
       </View>
       
-      {/* Confirmación del botón de Descargar */}
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={showConfirmationDialog}
-        onRequestClose={handleCancel}
-      >
-        <TouchableHighlight
-          style={styles.modalBackground}
-          activeOpacity={1}
-          underlayColor="rgba(0, 0, 0, 0.5)"
-          onPress={handleCancel}
-        >
-          <View style={styles.modalView}>
-            <View style={styles.modalContent}>
-              <Text style={styles.modalText}>¿Estás seguro?</Text>
-              <View style={styles.modalButtons}>
-                <TouchableHighlight
-                  style={[styles.modalButton, styles.modalButtonYes]}
-                  onPress={handleConfirm}
-                  underlayColor="darkgreen"
-                >
-                  <Text style={styles.modalButtonText}>Sí</Text>
-                </TouchableHighlight>
-                <TouchableHighlight
-                  style={[styles.modalButton, styles.modalButtonNo]}
-                  onPress={handleCancel}
-                  underlayColor="darkred"
-                >
-                  <Text style={styles.modalButtonText}>No</Text>
-                </TouchableHighlight>
-              </View>
-            </View>
-          </View>
-        </TouchableHighlight>
-      </Modal>
+      {/* Botón de Descargar */}
+      <TouchableOpacity style={styles.downloadButton} onPress={handleDownloadPress}>
+        <Text style={styles.downloadButtonText}>Descargar</Text>
+      </TouchableOpacity>
 
-      {/* Éxito al descargar */}
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={showSuccessDialog}
-        onRequestClose={handleSuccessOk}
-      >
-        <TouchableHighlight
-          style={styles.modalBackground}
-          activeOpacity={1}
-          underlayColor="rgba(0, 0, 0, 0.5)"
-          onPress={handleSuccessOk}
-        >
-          <View style={styles.modalView}>
-            <View style={styles.modalContent}>
-              <Text style={styles.modalText}>Descarga completada</Text>
-              <TouchableHighlight
-                style={[styles.modalButton, styles.modalButtonOk]}
-                onPress={handleSuccessOk}
-                underlayColor="darkgreen"
-              >
-                <Text style={styles.modalButtonText}>Aceptar</Text>
-              </TouchableHighlight>
+      {/* Ventana de alerta de descarga */}
+      {showDownloadAlert && (
+        <View style={styles.alertContainer}>
+          <View style={styles.alertBox}>
+            <Text style={styles.alertText}>¿Estás seguro de descargar?</Text>
+            <View style={styles.alertButtons}>
+              <TouchableOpacity style={styles.alertButton} onPress={handleConfirmDownload}>
+                <Text style={styles.alertButtonText}>Sí</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={[styles.alertButton, { backgroundColor: '#FD3237' }]} onPress={() => setShowDownloadAlert(false)}>
+                <Text style={styles.alertButtonText}>No</Text>
+              </TouchableOpacity>
             </View>
           </View>
-        </TouchableHighlight>
-      </Modal>
+        </View>
+      )}
     </View>
   );
 }
@@ -173,7 +127,7 @@ const styles = StyleSheet.create({
     marginRight: 15,
   },
   name: {
-    fontSize: 18, // Ajusta el tamaño del texto del nombre
+    fontSize: 16, // Cambia el tamaño de la fuente a 16
     fontWeight: 'bold', // Establece el peso del texto del nombre
   },
   button: {
@@ -193,66 +147,58 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontWeight: 'bold',
+    paddingHorizontal:12
+
+  },
+  buttonTextRed: {
+    color: 'white',
+    fontWeight: 'bold',
+    paddingHorizontal:12
   },
   downloadButton: {
-    backgroundColor: 'green',
+    backgroundColor: '#009475',
     paddingVertical: 15,
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     borderRadius: 5,
-    alignItems: 'center',
-    alignSelf: 'flex-end', // Alinea el botón a la derecha
+    alignItems: 'center', // Centra el contenido horizontalmente
+    alignSelf: 'center', // Centra el botón en el centro horizontal de su contenedor
     marginTop: 20,
+    color: 'white', // Color del texto del botón
   },
-  downloadButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-  },
-  modalBackground: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  alertContainer: {
+    ...StyleSheet.absoluteFillObject,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
-  modalView: {
-    backgroundColor: 'transparent',
-    width: '80%',
-  },
-  modalContent: {
+  alertBox: {
     backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
-    alignItems: 'center',
-    elevation: 5,
+    padding: 20,
+    borderRadius: 10,
   },
-  modalText: {
-    marginBottom: 20,
-    textAlign: 'center',
+  alertText: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
   },
-  modalButtons: {
+  alertButtons: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
+    justifyContent: 'space-around',
   },
-  modalButton: {
+  alertButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     borderRadius: 5,
-    padding: 10,
-    elevation: 2,
-    width: '45%',
+    backgroundColor: '#009475',
   },
-  modalButtonYes: {
-    backgroundColor: 'green',
+  downloadButtonText:{
+color:'#fff'
   },
-  modalButtonNo: {
-    backgroundColor: 'red',
-  },
-  modalButtonOk: {
-    backgroundColor: 'green',
-  },
-  modalButtonText: {
+
+
+  alertButtonText: {
     color: 'white',
     fontWeight: 'bold',
-    textAlign: 'center',
   },
 });

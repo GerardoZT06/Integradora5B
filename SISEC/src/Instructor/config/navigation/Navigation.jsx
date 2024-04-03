@@ -9,6 +9,7 @@ import ParticipantesStack from './../stack/ParticipantesStack'
 import EventosStack from './../stack/EventosStack'
 import PerfilStack from './../stack/PerfilStack'
 
+
 const Tab = createBottomTabNavigator();
 export default function Navigation() {
   return (
@@ -61,21 +62,19 @@ const getIconName = (routeName, focused) => {
   let iconName = "";
   let iconType = "material-community";
   switch (routeName) {
-    case "BuscarStack":
-      iconName = focused ? "magnify" : "magnify";
+    case "HomeStack":
+      iconName = focused ? "home" : "home";
       break;
-    case "CorazonStack":
-      iconName = focused ? "heart-outline" : "heart-outline";
+    case "ParticipantesStack":
+      iconName = focused ? "account-multiple" : "account-multiple";
       break;
-    case "InicioStack":
-      iconName = focused ? "home" : "home-outline";
+    case "EventosStack":
+      iconName = focused ? "calendar-multiple" : "calendar-multiple";
       break;
-    case "InscritoStack":
+    case "CalificacionStack":
       iconName = focused ? "file-check-outline" : "file-check-outline";
       break;
-    case "MeGustaStack":
-      iconName = focused ? "thumb-up-outline" : "thumb-up-outline";
-      break;
+  
     case "PerfilStack":
       iconName = focused ? "account-outline" : "account-outline";
       break;

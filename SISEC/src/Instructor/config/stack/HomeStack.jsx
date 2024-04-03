@@ -12,7 +12,7 @@ export default function BuscarStack() {
         name = 'Home' 
         component={Home} 
         options={{
-            title: 'Home',
+            title: 'Inicio',
             headerTitleAlign: 'center',
             }}/>
    </Stack.Navigator>

@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Calificar from '../../';
+import Calificar from '../../modules/calificar/adapters/screens/Calificar';
 const Stack = createStackNavigator();
 
 export default function QualifyStack() {
@@ -9,7 +9,8 @@ export default function QualifyStack() {
       <Stack.Screen 
         name="Calificar"
         component={Calificar}
-        options={{title: 'Calificar'}}
+        options={{title: 'Calificar',  headerTitleAlign: 'center',
+      }}
       />
     </Stack.Navigator>
   );
